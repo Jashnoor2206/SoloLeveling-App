@@ -74,6 +74,8 @@ struct Level: Codable{
     var preferred_workout: String = ""
     var waterIntake: Int = 0
     var targetIntake: Int = 8 // 8 glasses of 250ml each
+    var sleepHours: Int = 2
+    var targetHours: Int = 8
     
     // game info
     var streak_count: Int = 0

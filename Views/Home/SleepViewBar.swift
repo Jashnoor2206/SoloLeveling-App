@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct SleepViewBar: View {
-    var sleep: Int = 2
-    var maxSleep: Int = 8
+    var sleepVariable: Details
     var progress: Double{
-        Double(sleep) / Double(maxSleep)
+        Double(sleepVariable.sleepHours) / Double(sleepVariable.targetHours)
     }
     var body: some View {
         ZStack {
@@ -38,5 +37,6 @@ struct SleepViewBar: View {
 }
 
 #Preview {
-    SleepViewBar()
+    @State @Previewable var sleep = Details()
+    SleepViewBar(sleepVariable: sleep)
 }

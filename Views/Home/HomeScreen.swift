@@ -38,7 +38,7 @@ struct HomeScreen: View {
                     HStack{
                         WaterIntakeView(waterVariable: details)
                         Spacer()
-                        SleepViewBar()
+                        SleepViewBar(sleepVariable: details)
                     }.padding()
                         .frame(height: 200)
                         
