@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DaysView: View{
+struct NewHomeScreen: View{
     let weekday = Calendar.current.component(.weekday, from: Date())
     
     let days: [String] = [
@@ -17,7 +17,11 @@ struct DaysView: View{
         VStack{
             RoundedRectangle(cornerRadius: 40.45)
                 .frame(height: 183.25)
-                
+                .foregroundStyle(Color(hex: "B388FF"))
+                .overlay{
+                    Text("Daily \nTasks")
+                }
+            
             HStack{
                 ForEach(days.indices, id: \.self){ index in
                     if let date = Calendar.current.date(
@@ -35,25 +39,32 @@ struct DaysView: View{
                 }
             }
         }.padding()
-    }
-        
-    func daysRect(day: String, variable: Bool, currDate: Int) -> some View{
-            RoundedRectangle(cornerRadius: 25)
-                .stroke(.gray)
-                .fill(variable ? .black : .clear)
-                .frame(width: 46.35, height: 70)
-                .overlay{
-                    VStack{
-                        Text(day)
-                            .foregroundStyle(variable ? .white : .gray)
-                        Text("\(currDate)")
-                            .foregroundStyle(variable ? .white : .black)
+            .onAppear {
+                for family in UIFont.familyNames.sorted() {
+                    for name in UIFont.fontNames(forFamilyName: family) {
+                        print(name)
                     }
                 }
-        }
+            }
+    }
+    
+    func daysRect(day: String, variable: Bool, currDate: Int) -> some View{
+        RoundedRectangle(cornerRadius: 25)
+            .stroke(.gray)
+            .fill(variable ? .black : .clear)
+            .frame(width: 46.35, height: 70)
+            .overlay{
+                VStack{
+                    Text(day)
+                        .foregroundStyle(variable ? .white : .gray)
+                    Text("\(currDate)")
+                        .foregroundStyle(variable ? .white : .black)
+                }
+            }
+    }
 }
 // Golden ratio value = 1.618
 
 #Preview {
-    DaysView()
+    NewHomeScreen()
 }
