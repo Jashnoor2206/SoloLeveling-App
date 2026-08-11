@@ -30,7 +30,7 @@ struct WaterIntakeView: View {
                 GlassShape()
                     .stroke(Color.gray.opacity(0.5), lineWidth: 2)
             }
-            .frame(width: 50, height: 70)
+            .frame(width: 25, height: 35)
             .onAppear {
                 withAnimation(.linear(duration: 2).repeatForever(autoreverses: false)) {
                     phase = .pi * 2
@@ -58,7 +58,7 @@ struct WaterIntakeView: View {
                 }message: {
                     Text("Well Done")
                 }
-            }
+            }.frame(width: 10, height: 10)
         }
     }
     

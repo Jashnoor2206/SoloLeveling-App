@@ -14,8 +14,8 @@ struct MainTabView: View {
             NavigationStack{ HomeScreen(details: game) }
             .tabItem{ Label("Home", systemImage: "house.fill") }
             
-            NavigationStack{ ProfileView(details: game) }
-            .tabItem{ Label("Profile", systemImage: "person.fill") }
+//            NavigationStack{ ProfileView(details: game) }
+//            .tabItem{ Label("Profile", systemImage: "person.fill") }
             
             NavigationStack{ SettingView(details: game) }
             .tabItem{ Label("Settings", systemImage: "gearshape.fill") }

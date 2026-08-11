@@ -16,22 +16,23 @@ struct SleepViewBar: View {
         ZStack {
             // Background track
             Circle()
-                .stroke( lineWidth: 14)
+                .stroke( lineWidth: 7)
                 .foregroundStyle(Color(hex: "132B23").opacity(0.3))
-                .frame(width: 70, height: 70)
+                .frame(width: 35, height: 35)
             
             // Progress ring
             Circle()
                 .trim(from: 0, to: progress)
                 .stroke(
                     Color.teal,
-                    style: StrokeStyle(lineWidth: 14, lineCap: .round)
+                    style: StrokeStyle(lineWidth: 7, lineCap: .round)
                 )
                 .rotationEffect(.degrees(-90)) // start from top
                 .animation(.easeOut(duration: 0.6), value: progress)
-                .frame(width: 70, height: 70)
+                .frame(width: 35, height: 35)
             
             Image(systemName: "bed.double.fill")
+                .frame(width: 10, height: 10)
         }
     }
 }

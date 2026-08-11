@@ -9,11 +9,9 @@ import SwiftUI
 
 struct LevelView: View {
     var level_details: Level
-    var img: String = "hell"
     
     init(level_details: Level) {
         self.level_details = level_details
-        self.img = RankImageView(rank: level_details.rank).rankImage
     }
     private var xp_forNextLvl : Int {
         level_details.max_xp - level_details.current_xp
@@ -23,22 +21,7 @@ struct LevelView: View {
     }
     
     var body: some View {
-        HStack{
-            Rectangle()
-                .foregroundStyle(.clear)
-                .frame(width: 135, height: 135)
-                .overlay{
-                    Image(img)
-                        .resizable()
-                        .scaledToFit()
-                        .padding(.bottom)
-                }
-            
-            Spacer()
-
-            xpIndicator
-            .frame(width: 100, height: 100)
-        }.padding(5)
+        xpIndicator
     }
     
     var xpIndicator : some View{
@@ -46,7 +29,7 @@ struct LevelView: View {
             ZStack {
                 // Background track
                 Circle()
-                    .stroke( lineWidth: 14)
+                    .stroke( lineWidth: 10)
                     .foregroundStyle(Color(hex: "132B23").opacity(0.3))
                 
                 // Progress ring
@@ -54,22 +37,19 @@ struct LevelView: View {
                     .trim(from: 0, to: progress)
                     .stroke(
                         Color.teal,
-                        style: StrokeStyle(lineWidth: 14, lineCap: .round)
+                        style: StrokeStyle(lineWidth: 10, lineCap: .round)
                     )
                     .rotationEffect(.degrees(-90)) // start from top
                     .animation(.easeOut(duration: 0.6), value: progress)
                 
                 // Center content
                 VStack(spacing: 2) {
-                    Text("Level")
-                        .font(.caption)
-                        .foregroundColor(Color(hex: "132B23"))
                     Text("\(level_details.level)")
-                        .font(.system(size: 25, weight: .semibold, design: .rounded))
+                        .font(.system(size: 20, weight: .semibold, design: .rounded))
                         .foregroundStyle(Color(hex: "132B23"))
                 }
             }
-            .frame(width: 70, height: 70)
+            .frame(width: 40, height: 40)
             
             Text("\(Int(level_details.current_xp)) / \(Int(xp_forNextLvl)) XP ")
                 .font(.footnote)

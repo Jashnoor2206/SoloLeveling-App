@@ -18,9 +18,9 @@ struct SettingView: View {
                         settingsLabel(icon: "bell", title: "Notifications")
                     }
                     
-                    NavigationLink(destination: ProfileView(details: details)){
-                        settingsLabel(icon: "person", title: "Edit Profile")
-                    }
+//                    NavigationLink(destination: ProfileView(details: details)){
+//                        settingsLabel(icon: "person", title: "Edit Profile")
+//                    }
                     
                     waterSleepLabel(icon: "drop", title: "Water Intake", variable: details.targetIntake)
                     waterSleepLabel(icon: "bed.double", title: "Sleeping Hours", variable: details.targetHours)
