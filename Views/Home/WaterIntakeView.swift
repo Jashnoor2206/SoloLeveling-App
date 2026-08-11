@@ -31,7 +31,7 @@ struct WaterIntakeView: View {
                     GlassShape()
                         .stroke(Color.gray.opacity(0.5), lineWidth: 2)
                 }
-                .frame(width: 37.5, height: 50)
+                .frame(width: 31.25, height: 42)
                 .onAppear {
                     withAnimation(.linear(duration: 2).repeatForever(autoreverses: false)) {
                         phase = .pi * 2

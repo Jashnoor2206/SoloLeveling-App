@@ -64,6 +64,31 @@ struct HomeScreen: View{
                         RoundedRectangle(cornerRadius: 40.45)
                             .frame(width: 183.25, height: 191.5)
                             .foregroundStyle(Color(hex: "ADD8E6"))
+                            .overlay{
+                                VStack{
+                                    HStack{
+                                        RoundedRectangle(cornerRadius: 15)
+                                            .frame(width: 100, height: 40)
+                                            .foregroundStyle(.white.opacity(0.5))
+                                            .overlay{
+                                                Text("Rank")
+                                                    .font(.custom("AvenirNext-Bold", size: 20))
+                                            }
+                                        Spacer()
+                                    }
+                                    HStack{
+                                        RoundedRectangle(cornerRadius: 30)
+                                            .frame(width: 170, height: 130)
+                                            .foregroundStyle(.white.opacity(0.5))
+                                            .overlay{
+                                                VStack{
+                                                    Text("E rank Hunter")
+                                                        .font(.custom("AvenirNext-Medium", size: 30))
+                                                }.padding(2)
+                                            }
+                                    }
+                                }.padding()
+                            }
                         
                         RoundedRectangle(cornerRadius: 40.45)
                             .frame(width: 183.25, height: 100)
