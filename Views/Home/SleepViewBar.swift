@@ -18,7 +18,7 @@ struct SleepViewBar: View {
             Circle()
                 .stroke( lineWidth: 7)
                 .foregroundStyle(Color(hex: "132B23").opacity(0.3))
-                .frame(width: 35, height: 35)
+                .frame(width: 45, height: 45)
             
             // Progress ring
             Circle()
@@ -29,7 +29,7 @@ struct SleepViewBar: View {
                 )
                 .rotationEffect(.degrees(-90)) // start from top
                 .animation(.easeOut(duration: 0.6), value: progress)
-                .frame(width: 35, height: 35)
+                .frame(width: 45, height: 45)
             
             Image(systemName: "bed.double.fill")
                 .frame(width: 10, height: 10)

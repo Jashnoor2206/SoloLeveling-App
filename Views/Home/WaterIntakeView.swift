@@ -17,36 +17,33 @@ struct WaterIntakeView: View {
     }
 
     var body: some View {
-        VStack(spacing: 8) {
-            ZStack(alignment: .bottom) {
-                GlassShape()
-                    .stroke(Color.gray.opacity(0.5), lineWidth: 2)
-
-                WaveShape(progress: progress, phase: phase)
-                    .foregroundStyle(Color.teal)
-                    .clipShape(GlassShape())
-                    .animation(.easeOut(duration: 0.6), value: progress)
-
-                GlassShape()
-                    .stroke(Color.gray.opacity(0.5), lineWidth: 2)
-            }
-            .frame(width: 25, height: 35)
-            .onAppear {
-                withAnimation(.linear(duration: 2).repeatForever(autoreverses: false)) {
-                    phase = .pi * 2
+        HStack{
+            VStack(spacing: 8) {
+                ZStack(alignment: .bottom) {
+                    GlassShape()
+                        .stroke(Color.gray.opacity(0.5), lineWidth: 2)
+                    
+                    WaveShape(progress: progress, phase: phase)
+                        .foregroundStyle(Color.teal)
+                        .clipShape(GlassShape())
+                        .animation(.easeOut(duration: 0.6), value: progress)
+                    
+                    GlassShape()
+                        .stroke(Color.gray.opacity(0.5), lineWidth: 2)
                 }
+                .frame(width: 37.5, height: 50)
+                .onAppear {
+                    withAnimation(.linear(duration: 2).repeatForever(autoreverses: false)) {
+                        phase = .pi * 2
+                    }
+                }
+                
+                Text("\(waterVariable.waterIntake) / \(waterVariable.targetIntake) L")
+                    .font(.footnote)
+                    .foregroundColor(Color(hex: "132B23"))
             }
-
-            Text("\(waterVariable.waterIntake) / \(waterVariable.targetIntake) L")
-                .font(.footnote)
-                .foregroundColor(Color(hex: "132B23"))
             
-            HStack{
-                Button{
-                    decreaseWater()
-                }label: {
-                    Image(systemName: "minus")
-                }.disabled(waterVariable.waterIntake == 0 || waterVariable.waterIntake == 8)
+            VStack(spacing: 20){
                 Button{
                     increaseWater()
                 }label: {
@@ -58,7 +55,12 @@ struct WaterIntakeView: View {
                 }message: {
                     Text("Well Done")
                 }
-            }.frame(width: 10, height: 10)
+                Button{
+                    decreaseWater()
+                }label: {
+                    Image(systemName: "minus")
+                }.disabled(waterVariable.waterIntake == 0 || waterVariable.waterIntake == 8)
+            }.padding(.bottom, 20)
         }
     }
     

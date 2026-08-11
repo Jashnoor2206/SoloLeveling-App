@@ -71,9 +71,10 @@ struct HomeScreen: View{
                             .overlay{
                                 HStack{
                                     SleepViewBar(sleepVariable: details)
-//                                    LevelView(level_details: details.level)
+                                        .padding(.bottom, 10)
+                                    Spacer()
                                     WaterIntakeView(waterVariable: details)
-                                }
+                                }.padding(25)
                             }
 
                     }
