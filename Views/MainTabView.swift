@@ -9,22 +9,22 @@ import SwiftUI
 
 struct MainTabView: View {
     var game: Details
+    @State private var selectedTab = 0
+
     var body: some View {
-        TabView{
+        TabView(selection: $selectedTab){
             NavigationStack{ HomeScreen(details: game) }
-            .tabItem{ Label("Home", systemImage: "house.fill") }
+            .tag(0)
             
-//            NavigationStack{ ProfileView(details: game) }
-//            .tabItem{ Label("Profile", systemImage: "person.fill") }
+            NavigationStack{ ProfileView() }
+            .tag(1)
             
             NavigationStack{ SettingView(details: game) }
-            .tabItem{ Label("Settings", systemImage: "gearshape.fill") }
+            .tag(2)
             
-            NavigationStack{
-                
-            }
-            .tabItem{ Label("Honors", systemImage: "trophy.fill") }
         }
+        .tabViewStyle(.page(indexDisplayMode: .never))
+        .ignoresSafeArea(edges: .bottom) // let content extend fully
     }
 }
 

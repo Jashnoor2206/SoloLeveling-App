@@ -17,7 +17,7 @@ struct HomeScreen: View{
         "Wed","Thu","Fri","Sat" ]
     var body: some View{
         VStack{
-                ProfileView(name: details.name, level: details.level)
+                ProfileBarView(name: details.name, level: details.level)
             }
             VStack(spacing: 20){
                 RoundedRectangle(cornerRadius: 40.45)
@@ -67,7 +67,7 @@ struct HomeScreen: View{
                             .overlay{
                                 VStack{
                                     HStack{
-                                        RoundedRectangle(cornerRadius: 15)
+                                        RoundedRectangle(cornerRadius: 25)
                                             .frame(width: 100, height: 40)
                                             .foregroundStyle(.white.opacity(0.5))
                                             .overlay{
@@ -77,7 +77,7 @@ struct HomeScreen: View{
                                         Spacer()
                                     }
                                     HStack{
-                                        RoundedRectangle(cornerRadius: 30)
+                                        RoundedRectangle(cornerRadius: 35)
                                             .frame(width: 170, height: 130)
                                             .foregroundStyle(.white.opacity(0.5))
                                             .overlay{
